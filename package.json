@@ -1,0 +1,27 @@
+{
+  "name": "hipster-signaling-server",
+  "version": "1.0.0",
+  "description": "Simple WebSocket server for testing multi-device video calling",
+  "main": "test_server.js",
+  "scripts": {
+    "start": "node test_server.js",
+    "dev": "nodemon test_server.js"
+  },
+  "dependencies": {
+    "ws": "^8.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

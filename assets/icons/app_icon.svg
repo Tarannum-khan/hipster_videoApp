@@ -1,0 +1,44 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="512" cy="512" r="512" fill="url(#gradient1)"/>
+  
+  <!-- Video Call Icon -->
+  <g transform="translate(256, 256)">
+    <!-- Camera Body -->
+    <rect x="80" y="120" width="160" height="120" rx="20" fill="white" opacity="0.9"/>
+    
+    <!-- Camera Lens -->
+    <circle cx="160" cy="180" r="40" fill="url(#gradient2)"/>
+    <circle cx="160" cy="180" r="30" fill="white" opacity="0.8"/>
+    
+    <!-- Camera Flash -->
+    <rect x="200" y="140" width="20" height="15" rx="3" fill="white" opacity="0.7"/>
+    
+    <!-- Video Call Lines -->
+    <path d="M60 200 L40 200 L40 160 L60 160 Z" fill="white" opacity="0.8"/>
+    <path d="M220 200 L240 200 L240 160 L220 160 Z" fill="white" opacity="0.8"/>
+    <path d="M60 180 L40 180 L40 200 L60 200 Z" fill="white" opacity="0.8"/>
+    <path d="M220 180 L240 180 L240 200 L220 200 Z" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg>
+
+
+
+
+
+
+
+
