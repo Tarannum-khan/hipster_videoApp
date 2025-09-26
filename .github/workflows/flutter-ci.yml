@@ -30,10 +30,9 @@ jobs:
       - name: Flutter Pub Get
         run: flutter pub get
       
-      # Optional checks disabled to ensure build succeeds
+      # Optional checks disabled for now
       # - name: Analyze
       #   run: flutter analyze
-      
       # - name: Run tests
       #   run: flutter test --no-pub
 
@@ -41,30 +40,7 @@ jobs:
         run: flutter build apk --debug
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4   # ✅ already correct
         with:
           name: app-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
-
-  # iOS/macOS builds require macOS runners and signing; uncomment to enable
-  # build-ios:
-  #   name: Analyze, Test, (Optional) Build iOS
-  #   runs-on: macos-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Setup Flutter
-  #       uses: subosito/flutter-action@v2
-  #       with:
-  #         flutter-version: 'stable'
-  #         cache: true
-  #     - name: Flutter Pub Get
-  #       run: flutter pub get
-  #     - name: Analyze
-  #       run: flutter analyze
-  #     - name: Run tests
-  #       run: flutter test --no-pub
-  #     # Building iOS requires signing; configure certificates/profiles before enabling:
-  #     # - name: Build iOS
-  #     #   run: flutter build ipa --no-codesign
-

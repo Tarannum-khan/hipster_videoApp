@@ -11,88 +11,77 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-    
-    - name: Install dependencies
-      run: flutter pub get
-    
-    # Disable analyze/tests to unblock build; re-enable later
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+    # Optional checks (disabled for now)
     # - name: Run tests
     #   run: flutter test
-    
     # - name: Analyze code
     #   run: flutter analyze
-    
     # - name: Check formatting
     #   run: dart format --output=none --set-exit-if-changed .
 
   build-android:
     needs: test
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-    
-    - name: Install dependencies
-      run: flutter pub get
-    
-    - name: Build APK
-      run: flutter build apk --release
-    
-    - name: Build App Bundle
-      run: flutter build appbundle --release
-    
-    - name: Upload APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-release-apk
-        path: build/app/outputs/flutter-apk/app-release.apk
-    
-    - name: Upload AAB
-      uses: actions/upload-artifact@v3
-      with:
-        name: app-release-aab
-        path: build/app/outputs/bundle/release/app-release.aab
+      - uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk --release
+
+      - name: Build App Bundle
+        run: flutter build appbundle --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4   # ✅ updated
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v4   # ✅ updated
+        with:
+          name: app-release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
 
   build-ios:
     needs: test
     runs-on: macos-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        channel: 'stable'
-    
-    - name: Install dependencies
-      run: flutter pub get
-    
-    - name: Build iOS
-      run: flutter build ios --release --no-codesign
-    
-    - name: Upload iOS build
-      uses: actions/upload-artifact@v3
-      with:
-        name: ios-build
-        path: build/ios/Release-iphoneos/Runner.app
+      - uses: actions/checkout@v3
 
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
 
+      - name: Install dependencies
+        run: flutter pub get
 
+      - name: Build iOS
+        run: flutter build ios --release --no-codesign
 
-
-
-
-
-
+      - name: Upload iOS build
+        uses: actions/upload-artifact@v4   # ✅ updated
+        with:
+          name: ios-build
+          path: build/ios/Release-iphoneos/Runner.app

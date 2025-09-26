@@ -150,6 +150,14 @@ Accessing artifact: In the PR or workflow run page → Artifacts → download AP
 - Lifecycle: SDK initializes on login and cleans up on logout.
 - Tested on physical Android device; recommended to grant camera/mic.
 
+## Assumptions & Limitations
+- Auth accepts any email with password `123456`; optional ReqRes fallback.
+- Video SDK uses Zego Prebuilt Call for simplicity; replace with Chime if required.
+- Push notifications handled only in foreground; background push not enabled.
+- Chat is a UI scaffold (no realtime backend, no persistence).
+- iOS build requires Xcode/macOS and signing profiles.
+- Release signing must be configured locally (keystore/profiles not committed).
+
 ## Troubleshooting
 - Video/camera not working: ensure camera/mic permissions, real device recommended.
 - Build failures: `flutter clean && flutter pub get`.
